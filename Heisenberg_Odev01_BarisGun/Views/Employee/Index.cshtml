@@ -1,0 +1,30 @@
+﻿@model List<Employee>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Çalışan Listesi</h1>
+<hr />
+<table class="table table-bordered">
+    <tr>
+        <th>Çalışan No</th>
+        <th>Ad</th>
+        <th>Soyad</th>
+        <th>Ünvan</th>
+        <th>Siparişler</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.EmployeeId</td>
+            <td>@item.FirstName</td>
+            <td>@item.LastName</td>
+            <td>@item.Title</td>
+            <td><a href="/Employee/Orders/@item.EmployeeId" class="btn btn-outline-info">Siparişlere git</a></td>
+        </tr>
+    }
+</table>
+<br />
+<td><a href="/Employee/AddEmployee/" class="btn btn-outline-info">Yeni çalışan ekle</a></td>
